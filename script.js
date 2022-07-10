@@ -1,34 +1,30 @@
-const myLibrary = [{ title: 'The Bible', author: 'God', pages: 1000, read: 'read' }];
+/**
+ *
+ *  How many unique ways can one move from one corner of a n x n board to the other corner.
+ *  You can move up, down, left, and right. You cannot visit spots that you have visited already.
+ *  Make your solution work for a grid of any size.
+ *
+ */
 
-class Book {
-  constructor (title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-  }
+// A Board class might be useful
 
-  info() {
-    console.log(`${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`);
+function makeBoard(n) {
+  const board = [];
+  for (let i = 0; i < n; i++) {
+    board.push([]);
+    for (let j = 0; j < n; j++) {
+      board[i].push(false);
+    }
   }
-
-  toggle() {
-    this.read === 'read' ? this.read = 'not read' : this.read = 'read';
+  board.togglePiece = function (i, j) {
+    this[i][j] = !this[i][j];
   }
+  board.hasBeenVisited = function (i, j) {
+    return !!this[i][j];
+  }
+  return board;
 }
 
-function addBookToLibrary(...input) {
-  const newBook = new Book(...input);
-  myLibrary.push(newBook);
+function nPaths(size) {
+
 }
-
-function displayBooks() {
-  myLibrary.forEach(book => {
-    //display in DOM
-    //maybe add a card in a flexbox container?
-    console.log(book);
-  })
-}
-
-displayBooks();
-
