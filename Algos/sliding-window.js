@@ -97,7 +97,7 @@ var lengthOfLongestSubstring = function (s) {
       startIdx++;
     }
     map.set(s[i], true);
-    if (map.size > maxLength) maxLength = map.size;
+    maxLength = Math.max(maxLength, map.size);
   }
   return maxLength;
 }
