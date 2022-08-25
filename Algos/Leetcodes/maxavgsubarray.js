@@ -1,6 +1,7 @@
 //https://leetcode.com/problems/maximum-average-subarray-i/submissions/
 //https://leetcode.com/submissions/detail/756724107/
 
+
 function findMaxAverage (nums, k) {
   if (k === 1) {
     return nums.sort()[nums.length - 1];
