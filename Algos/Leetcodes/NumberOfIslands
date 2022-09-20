@@ -1,0 +1,18 @@
+const islandCount = (grid) => {
+  // grid[i][j]
+  for (let i = 0; i < grid.length; i++) {
+    for (let j = 0; j < grid[i].length; j++) {
+      let curr = grid[i][j];
+      console.log(curr)
+    }
+  }
+};
+
+
+const test1 = [
+  ['1', '2'],
+  ['3', '4'],
+  ['5', '6'],
+];
+
+islandCount(test1)
