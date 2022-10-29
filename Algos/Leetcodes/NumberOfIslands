@@ -1,13 +1,19 @@
 const islandCount = (grid) => {
+  let cache = new Set();
   // grid[i][j]
   for (let i = 0; i < grid.length; i++) {
     for (let j = 0; j < grid[i].length; j++) {
       let curr = grid[i][j];
-      console.log(curr)
+      let mark = `${i}-${j}`
+      if (!cache.has(mark)) {
+        cache.add(`${i}-${j}`)
+      } else {
+        
+      }
+  
     }
   }
 };
-
 
 const test1 = [
   ['1', '2'],
@@ -15,4 +21,4 @@ const test1 = [
   ['5', '6'],
 ];
 
-islandCount(test1)
+islandCount(test1);
