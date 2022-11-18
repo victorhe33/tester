@@ -2,6 +2,8 @@ const express = require('express');
 const { graphqlHTTP } = require('express-graphql');
 const { buildSchema, GraphQLSchema, GraphQLObjectType, GraphQLString, GraphQLList, GraphQLInt, GraphQLNonNull } = require('graphql');
 const app = express();
+const bodyParser = require('body-parser')
+app.use(bodyParser.json());
 
 const authors = [
   { id: 1, name: 'J. K. Rowling' },
@@ -148,6 +150,10 @@ const root = {
     return 'Hello world!';
   },
 };
+
+app.use('/', (req, res) => {
+  console.log('req.body', req.body)
+})
 
 app.use('/graphql', graphqlHTTP({
   schema: schema,
