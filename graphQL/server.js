@@ -4,6 +4,7 @@ const { buildSchema, GraphQLSchema, GraphQLObjectType, GraphQLString, GraphQLLis
 const app = express();
 const bodyParser = require('body-parser')
 app.use(bodyParser.json());
+const NoIntrospection = require('graphql-disable-introspection')
 
 const authors = [
   { id: 1, name: 'J. K. Rowling' },
@@ -151,14 +152,22 @@ const root = {
   },
 };
 
-app.use('/', (req, res) => {
-  console.log('req.body', req.body)
-})
+// app.use('/', (req, res) => {
+//   console.log('req.body', req.body)
+// })
 
-app.use('/graphql', graphqlHTTP({
+app.use('/safeql', graphqlHTTP({
   schema: schema,
   // rootValue: root,
-  graphiql: true
+  graphiql: true,
+  validationRules: [NoIntrospection],
 }))
+
+app.use('/unsafeql', graphqlHTTP({
+  schema: schema,
+  // rootValue: root,
+  graphiql: true,
+}))
+
 
 app.listen(3000., () => console.log('server is listening'));

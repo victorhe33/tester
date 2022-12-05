@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-fetch('http://localhost:3000/graphql', {
+fetch('http://localhost:4000/unsafeql', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
