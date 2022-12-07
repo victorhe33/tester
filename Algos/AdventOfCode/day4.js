@@ -1035,7 +1035,7 @@ pairs.forEach((pair, idx) => {
 // console.log(input);
 const couples = input.split('\n').filter(el => el !== "");
 
-// console.log(pairs);
+// console.log(pairs); 
 
 let result = 0;
 // console.log(pairs.length)
@@ -1062,4 +1062,4 @@ couples.forEach((couple, idx) => {
   ) result++;
 })
 
-console.log(result); // 883
+console.log(result); // 883g
