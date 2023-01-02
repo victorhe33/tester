@@ -4,7 +4,20 @@
 // Output: [[-1, -1, 2], [-1, 0, 1]]
 
 var threeSum = function (nums) {
-  return 5;
+  nums.sort((a, b) => a-b);
+  const result = [];
+  if (nums.length < 3) return result;
+  console.log(nums)
+
+  for (let i = 0; i < nums.length - 2; i++) {
+    const first = nums[i];
+    const remainder = 0 - nums[i]
+    console.log(first);
+    console.log(remainder)
+    const B = i + 1;
+    const C = nums.length - 1;
+    while ()
+  }  
 }
 
 console.log(threeSum([-1, 0, 1, 2, -1, -4])) //[[-1, -1, 2], [-1, 0, 1]]
