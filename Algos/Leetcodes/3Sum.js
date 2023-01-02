@@ -4,21 +4,60 @@
 // Output: [[-1, -1, 2], [-1, 0, 1]]
 
 var threeSum = function (nums) {
-  nums.sort((a, b) => a-b);
-  const result = [];
-  if (nums.length < 3) return result;
-  console.log(nums)
+    //sort my array in place
+    nums.sort((a, b) => a - b);
+    //declare result array
+    const result = [];
 
-  for (let i = 0; i < nums.length - 2; i++) {
-    const first = nums[i];
-    const remainder = 0 - nums[i]
-    console.log(first);
-    console.log(remainder)
-    const B = i + 1;
-    const C = nums.length - 1;
-    while ()
-  }  
-}
+    //OUTER LOOP FOR FIRST POINTER
+    for (let i = 0; i < nums.length - 2; i++) {
+        //INIT TWO POINTERS
+        let two = i + 1;
+        let three = nums.length - 1;
+
+        //optimization if i > 0
+        if (nums[i] > 0) return result;
+
+        //REMOVE DUPS FOR TWO
+        // while (nums[two + 1] === nums[two]) two++;
+
+        //REMOVE DUPS FOR THREE
+        // while (nums[three - 1] === nums[three]) three--;
+
+        //INNER LOOP FOR TWO, THREE POINTERS
+        while (two < three) {
+
+            //ignoring duplicate first pointers;
+            if (nums[i] === nums[i - 1]) break;
+
+            let sum = nums[i] + nums[two] + nums[three];
+            // console.log(nums[i], nums[two], nums[three]);
+
+            //if sum = target, push subset into result. two++, three--. avoid dups.
+            if (sum === 0) {
+                result.push([nums[i], nums[two], nums[three]])
+                while (nums[two + 1] === nums[two]) two++;
+                while (nums[three - 1] === nums[three]) three--;
+                two++; 1
+                three--;
+            };
+
+            //if sum > target
+            if (sum > 0) {
+                // while (nums[three - 1] === nums[three]) three--;
+                three--;
+            }
+
+            //if sum < target
+            if (sum < 0) {
+                // while (nums[two + 1] === nums[two]) two++;
+                two++;
+            }
+        }
+    }
+
+    return result;
+};
 
 console.log(threeSum([-1, 0, 1, 2, -1, -4])) //[[-1, -1, 2], [-1, 0, 1]]
 
