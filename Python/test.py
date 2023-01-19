@@ -62,12 +62,70 @@
 
 # FOR LOOP W/ LIST aka Array
 
-numbers = [1, 2, 3, 4, 5]
+# numbers = [1, 2, 3, 4, 5]
 
-for item in numbers:
-  print(item)
+# for item in numbers:
+#   print(item)
 
-i = 0
-while i < len(numbers):
-  print(numbers[i])
-  i += 1
+# i = 0
+# while i < len(numbers):
+#   print(numbers[i])
+#   i += 1
+
+## RANGE OBJECT
+
+# numbers = range(5)
+# for number in numbers:
+#   print(number) ## 0 - 4
+
+# numbers2 = range(5, 10, 2)
+# for number in numbers2:
+#   print(number) ## 5, 7, 9
+
+# for number in range(5):
+#   print(number)
+
+# TUPLES - immutable
+
+# numbers = (1, 2, 3)
+# numbers[0] = 4 -> will error!
+# numbers
+
+## FUNCTIONS
+
+# def greet(first_name, last_name):
+#   print(f"Hi {first_name} {last_name}")
+
+# greet('Victor', 'He')
+
+# Required vs OPTIONAL PARAMETER
+# def increment(number, by=1):
+#   return number + by
+
+# print(increment(5, 5)) # -> 6
+
+# multi-param
+# this prefix * turns your param into a tuple
+
+# def multiply(*numbers):
+#   total = 1
+#   for number in numbers:
+#     total *= number
+#   return total
+
+# print(multiply(2, 3, 4, 5)) # -> 120
+
+def save_user(**user):
+  print(user["name"])
+
+save_user(id=1, name="John", age=22) # -> dictionary aka an object { 'id': 1, 'name': 'John', 'age': 22 } 
+
+# SCOPE
+
+message = "a"
+
+def greet(name):
+  global message
+  message = "b"
+
+print(message) # -> b
